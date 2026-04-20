@@ -1,26 +1,287 @@
 @import "tailwindcss";
 
+/* ===================================================================
+   Esports Terminal — design tokens
+   =================================================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface palette */
+  --term-void: #06070a;
+  --term-base: #0a0b0f;
+  --term-panel: #111319;
+  --term-panel-elev: #161924;
+  --term-hairline: #1e2230;
+  --term-hairline-strong: #2a3040;
+  --term-scanline: rgba(124, 255, 178, 0.04);
+
+  /* Foreground */
+  --term-fg: #e6edf3;
+  --term-fg-dim: #9aa4b3;
+  --term-fg-muted: #58627a;
+
+  /* Accents */
+  --term-accent: #7cffb2;
+  --term-accent-dim: #2b8a5a;
+  --term-warn: #ffb547;
+  --term-alert: #ff5a6b;
+  --term-info: #6bb7ff;
+
+  /* Type palette (18 types, tuned for dark HUD) */
+  --type-normal: #a8a77a;
+  --type-fire: #ff7a3c;
+  --type-water: #4f8df3;
+  --type-electric: #f4d03f;
+  --type-grass: #6fd28b;
+  --type-ice: #8ed8f5;
+  --type-fighting: #d04a4a;
+  --type-poison: #b05ad5;
+  --type-ground: #e0b95b;
+  --type-flying: #9ab6f0;
+  --type-psychic: #ff6a8a;
+  --type-bug: #a6c24e;
+  --type-rock: #b8a957;
+  --type-ghost: #705aa8;
+  --type-dragon: #6b57e6;
+  --type-dark: #4f4a55;
+  --type-steel: #9aa7b8;
+  --type-fairy: #ff9fc3;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--term-base);
+  --color-foreground: var(--term-fg);
+
+  --color-void: var(--term-void);
+  --color-base: var(--term-base);
+  --color-panel: var(--term-panel);
+  --color-panel-elev: var(--term-panel-elev);
+  --color-hairline: var(--term-hairline);
+  --color-hairline-strong: var(--term-hairline-strong);
+
+  --color-fg: var(--term-fg);
+  --color-fg-dim: var(--term-fg-dim);
+  --color-fg-muted: var(--term-fg-muted);
+
+  --color-accent: var(--term-accent);
+  --color-accent-dim: var(--term-accent-dim);
+  --color-warn: var(--term-warn);
+  --color-alert: var(--term-alert);
+  --color-info: var(--term-info);
+
+  --color-type-normal: var(--type-normal);
+  --color-type-fire: var(--type-fire);
+  --color-type-water: var(--type-water);
+  --color-type-electric: var(--type-electric);
+  --color-type-grass: var(--type-grass);
+  --color-type-ice: var(--type-ice);
+  --color-type-fighting: var(--type-fighting);
+  --color-type-poison: var(--type-poison);
+  --color-type-ground: var(--type-ground);
+  --color-type-flying: var(--type-flying);
+  --color-type-psychic: var(--type-psychic);
+  --color-type-bug: var(--type-bug);
+  --color-type-rock: var(--type-rock);
+  --color-type-ghost: var(--type-ghost);
+  --color-type-dragon: var(--type-dragon);
+  --color-type-dark: var(--type-dark);
+  --color-type-steel: var(--type-steel);
+  --color-type-fairy: var(--type-fairy);
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===================================================================
+   Global base
+   =================================================================== */
+html,
+body {
+  background: var(--term-base);
+  color: var(--term-fg);
+  font-feature-settings: "ss01", "cv11", "tnum";
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 50% -10%,
+      rgba(124, 255, 178, 0.06),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--term-base) 0%, var(--term-void) 100%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(124, 255, 178, 0.25);
+  color: var(--term-fg);
+}
+
+/* ===================================================================
+   Reusable primitives
+   =================================================================== */
+
+/* Monospace numeric labels ("OPS", "TEAM/06", etc.) */
+.label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--term-fg-muted);
+}
+
+.label-strong {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--term-fg-dim);
+}
+
+.mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel {
+  background: var(--term-panel);
+  border: 1px solid var(--term-hairline);
+  border-radius: 2px;
+  position: relative;
+}
+
+/* 1px bright top edge to evoke a screen bezel */
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 255, 178, 0.35) 20%,
+    rgba(124, 255, 178, 0.35) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Faint scanline shimmer on panel header row */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--term-hairline);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      var(--term-scanline) 3px,
+      var(--term-scanline) 4px
+    );
+}
+
+/* Custom scrollbar (subtle, terminal-like) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--term-hairline-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--term-hairline-strong);
+  border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--term-accent-dim);
+}
+
+/* ===================================================================
+   Focus ring — neon accent, crisp, always visible for a11y
+   =================================================================== */
+:where(button, a, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+  outline: 1px solid var(--term-accent);
+  outline-offset: 2px;
+}
+
+/* ===================================================================
+   Motion — a few committed moments, nothing scattered
+   =================================================================== */
+@keyframes slide-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stat-flip {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up-in 120ms ease-out both;
+}
+
+.animate-stat-flip {
+  animation: stat-flip 220ms ease-in-out;
+}
+
+.cursor-blink::after {
+  content: "_";
+  color: var(--term-accent);
+  animation: cursor-blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
