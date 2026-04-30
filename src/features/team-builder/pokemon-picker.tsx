@@ -26,7 +26,7 @@ export function PokemonPicker({ value, onSelect }: PokemonPickerProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const listboxId = useId();
 
-  const debouncedQuery = useDebouncedValue(rawQuery, 150);
+  const debouncedQuery = useDebouncedValue(rawQuery, 300);
 
   const suggestions = useMemo(() => {
     if (!index) return [];
@@ -107,7 +107,7 @@ export function PokemonPicker({ value, onSelect }: PokemonPickerProps) {
           aria-expanded={open}
           aria-controls={listboxId}
           aria-autocomplete="list"
-          className="mono w-full bg-transparent text-fg text-xs outline-none placeholder:text-fg-muted uppercase tracking-wider"
+          className="mono w-full bg-transparent text-fg text-sm outline-none placeholder:text-fg-muted uppercase tracking-wider"
           role="combobox"
         />
         {value ? (
@@ -138,7 +138,7 @@ export function PokemonPicker({ value, onSelect }: PokemonPickerProps) {
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => handleSelect(entry)}
               onMouseEnter={() => setActiveIndex(i)}
-              className={`mono text-xs px-3 py-1.5 cursor-pointer flex items-center justify-between ${
+              className={`mono text-sm px-3 py-1.5 cursor-pointer flex items-center justify-between ${
                 i === activeIndex ? "bg-hairline text-accent" : "text-fg-dim"
               }`}
             >

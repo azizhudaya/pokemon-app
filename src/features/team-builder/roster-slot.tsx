@@ -80,7 +80,7 @@ export function RosterSlot({ index }: RosterSlotProps) {
             />
             {species ? (
               <div className="flex items-center gap-3 flex-wrap">
-                <span className="mono text-xs tracking-wider text-fg">
+                <span className="mono text-sm tracking-wider text-fg">
                   {species.displayName.toUpperCase()}
                 </span>
                 <div className="flex items-center gap-1">
@@ -110,7 +110,7 @@ export function RosterSlot({ index }: RosterSlotProps) {
               />
               <div className="flex flex-col gap-1">
                 <span className="label-strong">BASE STATS</span>
-                <div className="mono text-[10px] text-fg-dim flex flex-wrap gap-x-3 gap-y-0.5">
+                <div className="mono text-[12px] text-fg-dim flex flex-wrap gap-x-3 gap-y-0.5">
                   <span>HP {species.baseStats.hp}</span>
                   <span>ATK {species.baseStats.attack}</span>
                   <span>DEF {species.baseStats.defense}</span>

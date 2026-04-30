@@ -21,7 +21,7 @@ export function SynergyMatrixPanel({ analytics }: SynergyMatrixPanelProps) {
       {filledSlotCount === 0 ? (
         <EmptyState />
       ) : (
-        <table className="w-full border-collapse mono text-[10px] min-w-[640px]">
+        <table className="w-full border-collapse mono text-[12px] min-w-[640px]">
           <thead>
             <tr>
               <th className="text-left p-2 border-b border-hairline label sticky left-0 bg-panel z-10">

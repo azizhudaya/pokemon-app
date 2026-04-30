@@ -37,7 +37,7 @@ export function TerminalSelect({
           value={value}
           disabled={disabled}
           onChange={(e) => onChange(e.target.value)}
-          className="mono w-full appearance-none bg-void border border-hairline px-3 py-2 text-xs uppercase tracking-wider text-fg pr-8 disabled:text-fg-muted disabled:cursor-not-allowed"
+          className="mono w-full appearance-none bg-void border border-hairline px-3 py-2 text-sm uppercase tracking-wider text-fg pr-8 disabled:text-fg-muted disabled:cursor-not-allowed"
         >
           {placeholder ? (
             <option value="" disabled>

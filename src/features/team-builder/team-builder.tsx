@@ -22,7 +22,7 @@ export function TeamBuilder() {
       <header className="flex items-center justify-between gap-3 flex-wrap">
         <div>
           <h2 className="label-strong">TEAM BUILDER</h2>
-          <p className="mono text-[10px] text-fg-muted tracking-widest uppercase mt-1">
+          <p className="mono text-[12px] text-fg-muted tracking-widest uppercase mt-1">
             Roster // {String(filledCount).padStart(2, "0")}/{String(TEAM_SIZE).padStart(2, "0")}
           </p>
         </div>

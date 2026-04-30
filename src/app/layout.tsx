@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "VGC // Beginner Analyzer",
   description:
-    "Deterministic team synergy, damage category, and speed tier analysis for competitive Pokémon beginners.",
+    "Team synergy, damage category, and speed tier analysis for competitive Pokémon beginners.",
 };
 
 export default function RootLayout({

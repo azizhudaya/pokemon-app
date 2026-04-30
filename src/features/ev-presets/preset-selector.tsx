@@ -52,15 +52,15 @@ export function PresetSelector({ slotIndex }: PresetSelectorProps) {
               }`}
             >
               <div className="flex items-center justify-between gap-1">
-                <span className="mono text-[10px]">{preset.label.toUpperCase()}</span>
-                {active ? <span className="text-[9px]">◉</span> : null}
+                <span className="mono text-[12px]">{preset.label.toUpperCase()}</span>
+                {active ? <span className="text-[11px]">◉</span> : null}
               </div>
             </button>
           );
         })}
       </div>
       {finalStats ? (
-        <div className="mono text-[10px] text-fg-dim grid grid-cols-3 gap-x-3 gap-y-0.5 pt-1 border-t border-hairline">
+        <div className="mono text-[12px] text-fg-dim grid grid-cols-3 gap-x-3 gap-y-0.5 pt-1 border-t border-hairline">
           <StatLine label="HP" value={finalStats.hp} />
           <StatLine label="ATK" value={finalStats.attack} />
           <StatLine label="DEF" value={finalStats.defense} />

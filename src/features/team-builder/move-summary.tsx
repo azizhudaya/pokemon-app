@@ -27,7 +27,7 @@ export function MoveSummary({ moves, ability }: MoveSummaryProps) {
           return (
             <li
               key={i}
-              className="flex items-center justify-between gap-2 mono text-[10px] text-fg-dim"
+              className="flex items-center justify-between gap-2 mono text-[12px] text-fg-dim"
             >
               <div className="flex items-center gap-2 min-w-0">
                 <span className="label text-fg-muted w-5 tabular-nums">

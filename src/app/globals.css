@@ -15,8 +15,8 @@
 
   /* Foreground */
   --term-fg: #e6edf3;
-  --term-fg-dim: #9aa4b3;
-  --term-fg-muted: #58627a;
+  --term-fg-dim: #b3bcc9;
+  --term-fg-muted: #7a8599;
 
   /* Accents */
   --term-accent: #7cffb2;
@@ -124,7 +124,7 @@ body {
 /* Monospace numeric labels ("OPS", "TEAM/06", etc.) */
 .label {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--term-fg-muted);
@@ -132,7 +132,7 @@ body {
 
 .label-strong {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--term-fg-dim);
@@ -146,8 +146,9 @@ body {
 .panel {
   background: var(--term-panel);
   border: 1px solid var(--term-hairline);
-  border-radius: 2px;
+  border-radius: 8px;
   position: relative;
+  overflow: hidden;
 }
 
 /* 1px bright top edge to evoke a screen bezel */
@@ -166,6 +167,7 @@ body {
     transparent 100%
   );
   pointer-events: none;
+  border-radius: 8px 8px 0 0;
 }
 
 /* Faint scanline shimmer on panel header row */

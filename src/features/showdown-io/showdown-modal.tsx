@@ -110,7 +110,7 @@ export function ShowdownModal({ open, onClose }: ShowdownModalProps) {
             <textarea
               readOnly
               value={exportText}
-              className="mono text-[11px] text-fg-dim bg-void border border-hairline p-3 w-full h-72 resize-none"
+              className="mono text-[13px] text-fg-dim bg-void border border-hairline p-3 w-full h-72 resize-none"
               aria-label="Showdown export text"
             />
             <div className="flex justify-end">
@@ -129,11 +129,11 @@ export function ShowdownModal({ open, onClose }: ShowdownModalProps) {
               value={importText}
               onChange={(e) => setImportText(e.target.value)}
               placeholder="Paste Showdown text here..."
-              className="mono text-[11px] text-fg bg-void border border-hairline p-3 w-full h-64 resize-none"
+              className="mono text-[13px] text-fg bg-void border border-hairline p-3 w-full h-64 resize-none"
               aria-label="Showdown import text"
             />
             {warnings.length > 0 ? (
-              <ul className="mono text-[10px] text-warn flex flex-col gap-0.5">
+              <ul className="mono text-[12px] text-warn flex flex-col gap-0.5">
                 {warnings.map((warning, i) => (
                   <li key={i}>! {warning}</li>
                 ))}

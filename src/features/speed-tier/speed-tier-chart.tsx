@@ -84,7 +84,7 @@ export default function SpeedTierChart({ rows }: SpeedTierChartProps) {
             type="number"
             stroke="var(--term-fg-muted)"
             tick={{
-              fontSize: 10,
+              fontSize: 12,
               fill: "var(--term-fg-muted)",
               fontFamily: "var(--font-jetbrains-mono)",
             }}
@@ -96,7 +96,7 @@ export default function SpeedTierChart({ rows }: SpeedTierChartProps) {
             type="category"
             stroke="var(--term-fg-muted)"
             tick={{
-              fontSize: 10,
+              fontSize: 12,
               fill: "var(--term-fg)",
               fontFamily: "var(--font-jetbrains-mono)",
             }}
@@ -109,11 +109,13 @@ export default function SpeedTierChart({ rows }: SpeedTierChartProps) {
             contentStyle={{
               background: "var(--term-panel-elev)",
               border: "1px solid var(--term-hairline-strong)",
-              borderRadius: 2,
-              fontSize: 11,
+              borderRadius: 8,
+              fontSize: 13,
               fontFamily: "var(--font-jetbrains-mono)",
               color: "var(--term-fg)",
             }}
+            labelStyle={{ color: "var(--term-fg)" }}
+            itemStyle={{ color: "var(--term-fg)" }}
             formatter={(value, _name, item) => {
               const payload = (item as { payload?: SpeedRow })?.payload;
               const note = payload?.note ?? "";

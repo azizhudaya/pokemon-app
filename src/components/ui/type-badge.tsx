@@ -31,9 +31,9 @@ export function TypeBadge({ type, size = "sm", variant = "filled" }: TypeBadgePr
   const color = TYPE_COLOR_VAR[type];
 
   const sizeClasses = {
-    xs: "text-[9px] px-1.5 py-0.5 tracking-widest",
-    sm: "text-[10px] px-2 py-1 tracking-widest",
-    md: "text-[11px] px-2.5 py-1.5 tracking-widest",
+    xs: "text-[11px] px-1.5 py-0.5 tracking-widest",
+    sm: "text-[12px] px-2 py-1 tracking-widest",
+    md: "text-[13px] px-2.5 py-1.5 tracking-widest",
   };
 
   if (variant === "outline") {

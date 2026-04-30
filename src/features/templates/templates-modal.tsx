@@ -79,10 +79,10 @@ export function TemplatesModal({ open, onClose }: TemplatesModalProps) {
               onClick={() => handleChoose(template)}
               className="text-left border border-hairline hover:border-accent/60 bg-void p-4 transition-colors flex flex-col gap-2"
             >
-              <span className="mono text-[11px] tracking-widest uppercase text-accent">
+              <span className="mono text-[13px] tracking-widest uppercase text-accent">
                 {template.name}
               </span>
-              <span className="mono text-[10px] text-fg-dim leading-relaxed">
+              <span className="mono text-[12px] text-fg-dim leading-relaxed">
                 {template.description}
               </span>
               <span className="label text-fg-muted">
@@ -112,7 +112,7 @@ export function TemplatesModal({ open, onClose }: TemplatesModalProps) {
               <span className="label-strong text-warn">CONFIRM OVERWRITE</span>
             </header>
             <div className="p-4 flex flex-col gap-3">
-              <p className="mono text-[11px] leading-relaxed text-fg-dim">
+              <p className="mono text-[13px] leading-relaxed text-fg-dim">
                 Loading <span className="text-fg">{pendingTemplate.name}</span> will
                 replace your current roster. This cannot be undone.
               </p>

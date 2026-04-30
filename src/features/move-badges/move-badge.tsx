@@ -17,7 +17,7 @@ export function MoveBadge({ badge }: MoveBadgeProps) {
     <span
       title={badge.description}
       aria-label={badge.description}
-      className="mono text-[9px] tracking-wider px-1.5 py-0.5 border"
+      className="mono text-[11px] tracking-wider px-1.5 py-0.5 border"
       style={{
         color: tone.color,
         background: tone.bg,

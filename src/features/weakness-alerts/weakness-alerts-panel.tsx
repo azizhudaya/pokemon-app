@@ -32,7 +32,7 @@ export function WeaknessAlertsPanel({ analytics }: WeaknessAlertsPanelProps) {
               >
                 <div className="flex items-center gap-3">
                   <TypeBadge type={alert.attackingType} size="sm" />
-                  <span className="mono text-[11px] tracking-wider text-fg">
+                  <span className="mono text-[13px] tracking-wider text-fg">
                     {alert.count} MEMBERS WEAK
                     {alert.severity === "critical" ? " · INCL. 4×" : ""}
                   </span>
@@ -44,7 +44,7 @@ export function WeaknessAlertsPanel({ analytics }: WeaknessAlertsPanelProps) {
             ))}
           </ul>
         ) : (
-          <div className="mono text-[11px] tracking-wider text-fg-muted uppercase text-center py-2">
+          <div className="mono text-[13px] tracking-wider text-fg-muted uppercase text-center py-2">
             NO TYPE EXPLOITS 3+ MEMBERS · STRONG COVERAGE
           </div>
         )}

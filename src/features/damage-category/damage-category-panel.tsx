@@ -27,7 +27,7 @@ export function DamageCategoryPanel({ analytics }: DamageCategoryPanelProps) {
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <span className="label">PHY/SPA RATIO</span>
-              <span className="mono text-[10px] text-fg-muted tracking-wider">
+              <span className="mono text-[12px] text-fg-muted tracking-wider">
                 {physicalPct.toFixed(0)}% / {specialPct.toFixed(0)}%
               </span>
             </div>
@@ -61,7 +61,7 @@ export function DamageCategoryPanel({ analytics }: DamageCategoryPanelProps) {
           <div
             role="status"
             aria-live="polite"
-            className="mono text-[10px] tracking-wider uppercase px-3 py-2 border border-warn/30 bg-warn/5 text-warn animate-slide-up"
+            className="mono text-[12px] tracking-wider uppercase px-3 py-2 border border-warn/30 bg-warn/5 text-warn animate-slide-up"
           >
             ! {warning}
           </div>
